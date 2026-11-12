@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root { color-scheme: light only; }
+  html { background: #FAFAF9; -webkit-text-size-adjust: 100%; }
+  body {
+    @apply bg-canvas text-ink font-sans antialiased;
+    font-size: 15px;
+    line-height: 1.5;
+    font-feature-settings: "cv11", "ss01", "ss03", "calt";
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  ::selection { background: #F6E5DC; color: #1C1B1A; }
+  :focus { outline: none; }
+  :focus-visible { outline: 2px solid #C4673F; outline-offset: 3px; border-radius: 12px; }
+  a { color: inherit; }
+  button { -webkit-tap-highlight-color: transparent; }
+}
+
+@layer components {
+  /* Translucent material: soft blur over a faint warm wash, no borders. */
+  .material {
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: saturate(160%) blur(24px);
+    -webkit-backdrop-filter: saturate(160%) blur(24px);
+  }
+  .num { font-variant-numeric: tabular-nums; font-feature-settings: "tnum", "cv11", "ss01"; }
+  .eyebrow { @apply text-[12px] font-medium uppercase tracking-label text-ink-3; }
+  .display { @apply font-semibold tracking-display leading-none num; }
+}
+
+/* Recharts: strip default chrome. */
+.recharts-surface:focus, .recharts-wrapper:focus, .recharts-sector:focus { outline: none; }
+.recharts-cartesian-axis-tick-value { font-feature-settings: "tnum"; }

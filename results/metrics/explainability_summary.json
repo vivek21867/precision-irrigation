@@ -1,0 +1,24 @@
+{
+  "permutation": {
+    "samples": 3100,
+    "repeats": 3,
+    "metric": "increase in test RMSE (m3/m3)"
+  },
+  "shap": {
+    "LSTM": {
+      "shap": "ok",
+      "n_explained": 200,
+      "background": 100
+    },
+    "BiLSTM": {
+      "shap": "ok",
+      "n_explained": 200,
+      "background": 100
+    },
+    "Transformer": {
+      "shap": "ok",
+      "n_explained": 200,
+      "background": 100
+    }
+  }
+}

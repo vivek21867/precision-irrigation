@@ -1,0 +1,170 @@
+{
+  "station": "NE_Lincoln_8_ENE",
+  "wbanno": [
+    "94995"
+  ],
+  "latitude": [
+    40.85
+  ],
+  "longitude": [
+    -96.57
+  ],
+  "n_files": 10,
+  "years_downloaded": [
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024
+  ],
+  "total_observations": 87672,
+  "utc_start": "2015-01-01 01:00:00",
+  "utc_end": "2025-01-01 00:00:00",
+  "duplicate_utc_timestamps": 0,
+  "missing_hourly_timestamps": 0,
+  "columns": [
+    "WBANNO",
+    "UTC_DATE",
+    "UTC_TIME",
+    "LST_DATE",
+    "LST_TIME",
+    "CRX_VN",
+    "LONGITUDE",
+    "LATITUDE",
+    "T_CALC",
+    "T_HR_AVG",
+    "T_MAX",
+    "T_MIN",
+    "P_CALC",
+    "SOLARAD",
+    "SOLARAD_FLAG",
+    "SOLARAD_MAX",
+    "SOLARAD_MAX_FLAG",
+    "SOLARAD_MIN",
+    "SOLARAD_MIN_FLAG",
+    "SUR_TEMP_TYPE",
+    "SUR_TEMP",
+    "SUR_TEMP_FLAG",
+    "SUR_TEMP_MAX",
+    "SUR_TEMP_MAX_FLAG",
+    "SUR_TEMP_MIN",
+    "SUR_TEMP_MIN_FLAG",
+    "RH_HR_AVG",
+    "RH_HR_AVG_FLAG",
+    "SOIL_MOISTURE_5",
+    "SOIL_MOISTURE_10",
+    "SOIL_MOISTURE_20",
+    "SOIL_MOISTURE_50",
+    "SOIL_MOISTURE_100",
+    "SOIL_TEMP_5",
+    "SOIL_TEMP_10",
+    "SOIL_TEMP_20",
+    "SOIL_TEMP_50",
+    "SOIL_TEMP_100",
+    "UTC_DATETIME",
+    "LST_DATETIME",
+    "SOURCE_FILE"
+  ],
+  "missing_percent_by_column": {
+    "LONGITUDE": 0.0,
+    "LATITUDE": 0.0,
+    "T_CALC": 0.574,
+    "T_HR_AVG": 0.689,
+    "T_MAX": 0.54,
+    "T_MIN": 0.578,
+    "P_CALC": 0.462,
+    "SOLARAD": 0.421,
+    "SOLARAD_MAX": 0.421,
+    "SOLARAD_MIN": 0.421,
+    "SUR_TEMP": 0.416,
+    "SUR_TEMP_MAX": 0.416,
+    "SUR_TEMP_MIN": 0.416,
+    "RH_HR_AVG": 0.472,
+    "SOIL_MOISTURE_5": 35.515,
+    "SOIL_MOISTURE_10": 32.413,
+    "SOIL_MOISTURE_20": 43.038,
+    "SOIL_MOISTURE_50": 24.056,
+    "SOIL_MOISTURE_100": 34.425,
+    "SOIL_TEMP_5": 20.776,
+    "SOIL_TEMP_10": 20.744,
+    "SOIL_TEMP_20": 5.596,
+    "SOIL_TEMP_50": 5.611,
+    "SOIL_TEMP_100": 5.697
+  },
+  "observed_min_excluding_sentinel": {
+    "LONGITUDE": -96.57,
+    "LATITUDE": 40.85,
+    "T_CALC": -36.6,
+    "T_HR_AVG": -36.3,
+    "T_MAX": -35.9,
+    "T_MIN": -36.8,
+    "P_CALC": 0.0,
+    "SOLARAD": 0.0,
+    "SOLARAD_MAX": 0.0,
+    "SOLARAD_MIN": 0.0,
+    "SUR_TEMP": -79.8,
+    "SUR_TEMP_MAX": -67.9,
+    "SUR_TEMP_MIN": -107.8,
+    "RH_HR_AVG": 7.0,
+    "SOIL_MOISTURE_5": 0.104,
+    "SOIL_MOISTURE_10": 0.109,
+    "SOIL_MOISTURE_20": 0.175,
+    "SOIL_MOISTURE_50": 0.051,
+    "SOIL_MOISTURE_100": 0.305,
+    "SOIL_TEMP_5": -10.3,
+    "SOIL_TEMP_10": -5.1,
+    "SOIL_TEMP_20": -2.3,
+    "SOIL_TEMP_50": 0.2,
+    "SOIL_TEMP_100": 2.0
+  },
+  "qc_flag_value_counts": {
+    "SOLARAD_FLAG": {
+      "0": 87623,
+      "3": 49
+    },
+    "SOLARAD_MAX_FLAG": {
+      "0": 87618,
+      "3": 54
+    },
+    "SOLARAD_MIN_FLAG": {
+      "0": 87623,
+      "3": 49
+    },
+    "SUR_TEMP_TYPE": {
+      "C": 87307,
+      "U": 365
+    },
+    "SUR_TEMP_FLAG": {
+      "0": 87621,
+      "3": 51
+    },
+    "SUR_TEMP_MAX_FLAG": {
+      "0": 87622,
+      "3": 50
+    },
+    "SUR_TEMP_MIN_FLAG": {
+      "0": 87616,
+      "3": 56
+    },
+    "RH_HR_AVG_FLAG": {
+      "0": 87672
+    }
+  },
+  "datalogger_versions": {
+    "2.622": 55302,
+    "2.422": 32005,
+    "-9.000": 365
+  },
+  "soil_moisture_columns": [
+    "SOIL_MOISTURE_5",
+    "SOIL_MOISTURE_10",
+    "SOIL_MOISTURE_20",
+    "SOIL_MOISTURE_50",
+    "SOIL_MOISTURE_100"
+  ]
+}

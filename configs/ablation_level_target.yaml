@@ -1,0 +1,10 @@
+# Ablation: identical pipeline, but the network predicts the next-hour
+# SOIL_MOISTURE_20 level directly instead of the 1-h change.
+# Run with:  PI_CONFIG=configs/ablation_level_target.yaml python -m src.training.train --model all
+base: config.yaml
+sequences:
+  target_mode: level
+  windows_dir: data/processed/ablation_level_target
+training:
+  model_dir: models/ablation_level_target
+  results_dir: results/ablation_level_target

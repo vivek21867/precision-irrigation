@@ -1,0 +1,81 @@
+{
+  "features": [
+    "T_HR_AVG",
+    "P_CALC",
+    "SOLARAD",
+    "SUR_TEMP",
+    "RH_HR_AVG",
+    "SOIL_TEMP_20",
+    "SOIL_MOISTURE_5",
+    "SOIL_MOISTURE_10",
+    "SOIL_MOISTURE_20",
+    "SOIL_MOISTURE_50",
+    "SOIL_MOISTURE_100"
+  ],
+  "target": "SOIL_MOISTURE_20",
+  "target_mode": "delta",
+  "input_window": 24,
+  "horizon": 1,
+  "stride": 1,
+  "cuts": {
+    "train_end_exclusive": "2020-12-08 07:00:00",
+    "val_end_exclusive": "2021-06-10 21:00:00"
+  },
+  "splits": {
+    "train": {
+      "rows": 15353,
+      "row_time_start": "2015-05-01 01:00:00",
+      "row_time_end": "2020-12-08 06:00:00",
+      "n_windows": 14174,
+      "X_shape": [
+        14174,
+        24,
+        11
+      ],
+      "y_shape": [
+        14174
+      ],
+      "target_time_start": "2015-05-02 01:00:00",
+      "target_time_end": "2020-12-08 06:00:00",
+      "target_mean": 0.3914305567741394,
+      "target_std": 0.05801331624388695
+    },
+    "val": {
+      "rows": 3335,
+      "row_time_start": "2020-12-08 07:00:00",
+      "row_time_end": "2021-06-10 20:00:00",
+      "n_windows": 3047,
+      "X_shape": [
+        3047,
+        24,
+        11
+      ],
+      "y_shape": [
+        3047
+      ],
+      "target_time_start": "2020-12-09 19:00:00",
+      "target_time_end": "2021-06-10 20:00:00",
+      "target_mean": 0.38584277033805847,
+      "target_std": 0.06463335454463959
+    },
+    "test": {
+      "rows": 3244,
+      "row_time_start": "2021-06-10 21:00:00",
+      "row_time_end": "2021-10-24 18:00:00",
+      "n_windows": 3100,
+      "X_shape": [
+        3100,
+        24,
+        11
+      ],
+      "y_shape": [
+        3100
+      ],
+      "target_time_start": "2021-06-11 21:00:00",
+      "target_time_end": "2021-10-24 18:00:00",
+      "target_mean": 0.2785535454750061,
+      "target_std": 0.056233298033475876
+    }
+  },
+  "leakage_checks": "passed: every window's inputs and target lie within its own split; windows stored in strictly increasing target time"
+}

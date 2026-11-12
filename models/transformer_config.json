@@ -1,0 +1,43 @@
+{
+  "model": "transformer",
+  "display_name": "Transformer",
+  "hyperparameters": {
+    "d_model": 64,
+    "nhead": 4,
+    "num_layers": 2,
+    "dim_feedforward": 128,
+    "dropout": 0.1
+  },
+  "n_features": 11,
+  "features": [
+    "T_HR_AVG",
+    "P_CALC",
+    "SOLARAD",
+    "SUR_TEMP",
+    "RH_HR_AVG",
+    "SOIL_TEMP_20",
+    "SOIL_MOISTURE_5",
+    "SOIL_MOISTURE_10",
+    "SOIL_MOISTURE_20",
+    "SOIL_MOISTURE_50",
+    "SOIL_MOISTURE_100"
+  ],
+  "target": "SOIL_MOISTURE_20",
+  "input_window": 24,
+  "horizon": 1,
+  "target_mode": "delta",
+  "n_trainable_params": 67905,
+  "seed": 42,
+  "optimizer": "Adam",
+  "loss": "MSELoss",
+  "learning_rate": 0.001,
+  "batch_size": 256,
+  "max_epochs": 60,
+  "early_stopping_patience": 8,
+  "epochs_run": 29,
+  "best_epoch": 21,
+  "best_val_mse_scaled": 0.40037012100219727,
+  "training_time_s": 357.9,
+  "torch_version": "2.13.0+cpu",
+  "trained_at": "2026-10-31T23:04:33"
+}

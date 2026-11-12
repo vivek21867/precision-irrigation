@@ -1,0 +1,73 @@
+{
+  "input_file": "uscrn_hourly_NE_Lincoln_8_ENE_2015_2024.parquet",
+  "n_input_rows": 87672,
+  "steps": {
+    "duplicates_removed": 0,
+    "sentinel_to_nan": {
+      "T_HR_AVG": 604,
+      "P_CALC": 405,
+      "SOLARAD": 369,
+      "SUR_TEMP": 365,
+      "RH_HR_AVG": 414,
+      "SOIL_TEMP_20": 4906,
+      "SOIL_MOISTURE_5": 31137,
+      "SOIL_MOISTURE_10": 28417,
+      "SOIL_MOISTURE_20": 37732,
+      "SOIL_MOISTURE_50": 21090,
+      "SOIL_MOISTURE_100": 30181
+    },
+    "qc_flag_3_to_nan": {
+      "SOLARAD": 45,
+      "SUR_TEMP": 51,
+      "RH_HR_AVG": 0,
+      "SUR_TEMP_type_U": 0
+    },
+    "physical_bounds_to_nan": {
+      "T_HR_AVG": 0,
+      "P_CALC": 0,
+      "SOLARAD": 0,
+      "SUR_TEMP": 0,
+      "RH_HR_AVG": 0,
+      "SOIL_TEMP_20": 0,
+      "SOIL_MOISTURE_5": 0,
+      "SOIL_MOISTURE_10": 0,
+      "SOIL_MOISTURE_20": 0,
+      "SOIL_MOISTURE_50": 0,
+      "SOIL_MOISTURE_100": 0
+    },
+    "hourly_timestamps_inserted": 0,
+    "short_gap_values_interpolated": {
+      "T_HR_AVG": 260,
+      "P_CALC": 0,
+      "SOLARAD": 77,
+      "SUR_TEMP": 79,
+      "RH_HR_AVG": 77,
+      "SOIL_TEMP_20": 327,
+      "SOIL_MOISTURE_5": 404,
+      "SOIL_MOISTURE_10": 312,
+      "SOIL_MOISTURE_20": 272,
+      "SOIL_MOISTURE_50": 392,
+      "SOIL_MOISTURE_100": 278
+    },
+    "rows_dropped_incomplete": 65740
+  },
+  "n_clean_rows": 21932,
+  "clean_utc_start": "2015-05-01 01:00:00",
+  "clean_utc_end": "2021-10-24 18:00:00",
+  "clean_rows_by_year": {
+    "2015": 4796,
+    "2016": 370,
+    "2019": 3523,
+    "2020": 7078,
+    "2021": 6165
+  },
+  "n_segments": 86,
+  "segment_length_hours": {
+    "min": 1,
+    "median": 66.0,
+    "max": 2731,
+    "n_segments_ge_25h": 53,
+    "rows_in_segments_ge_25h": 21621
+  },
+  "outlier_policy": "Statistical outliers are reported, not removed: extreme weather (e.g. heavy rain, cold waves) is physically valid and relevant."
+}

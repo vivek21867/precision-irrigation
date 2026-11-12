@@ -1,0 +1,10 @@
+.venv/
+.venv-*/
+__pycache__/
+.pytest_cache/
+.DS_Store
+*.part
+logs/
+app_settings.json
+web/node_modules/
+web/dist/

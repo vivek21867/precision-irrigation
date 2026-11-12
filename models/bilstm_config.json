@@ -1,0 +1,41 @@
+{
+  "model": "bilstm",
+  "display_name": "BiLSTM",
+  "hyperparameters": {
+    "hidden_size": 64,
+    "num_layers": 2,
+    "dropout": 0.2
+  },
+  "n_features": 11,
+  "features": [
+    "T_HR_AVG",
+    "P_CALC",
+    "SOLARAD",
+    "SUR_TEMP",
+    "RH_HR_AVG",
+    "SOIL_TEMP_20",
+    "SOIL_MOISTURE_5",
+    "SOIL_MOISTURE_10",
+    "SOIL_MOISTURE_20",
+    "SOIL_MOISTURE_50",
+    "SOIL_MOISTURE_100"
+  ],
+  "target": "SOIL_MOISTURE_20",
+  "input_window": 24,
+  "horizon": 1,
+  "target_mode": "delta",
+  "n_trainable_params": 138881,
+  "seed": 42,
+  "optimizer": "Adam",
+  "loss": "MSELoss",
+  "learning_rate": 0.001,
+  "batch_size": 256,
+  "max_epochs": 60,
+  "early_stopping_patience": 8,
+  "epochs_run": 13,
+  "best_epoch": 5,
+  "best_val_mse_scaled": 0.4385439455509186,
+  "training_time_s": 83.7,
+  "torch_version": "2.13.0+cpu",
+  "trained_at": "2026-10-31T22:58:36"
+}

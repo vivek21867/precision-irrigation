@@ -1,0 +1,118 @@
+# Precision Irrigation Prediction Framework - central configuration
+# All scripts read from this file; change values here rather than in code.
+
+project:
+  seed: 42
+  log_dir: logs
+
+data:
+  base_url: "https://www.ncei.noaa.gov/pub/data/uscrn/products/hourly02/"
+  readme_url: "https://www.ncei.noaa.gov/pub/data/uscrn/products/hourly02/README.txt"
+  headers_url: "https://www.ncei.noaa.gov/pub/data/uscrn/products/hourly02/HEADERS.txt"
+  station: "NE_Lincoln_8_ENE"
+  start_year: 2015
+  end_year: 2024
+  raw_dir: data/raw
+  extracted_dir: data/extracted
+  processed_dir: data/processed
+  metadata_dir: data/metadata
+  download:
+    max_retries: 5
+    backoff_seconds: 3
+    timeout_seconds: 120
+
+# NOAA column name -> descriptive feature. Order defines model input order.
+features:
+  - T_HR_AVG            # air temperature, hourly average (degC)
+  - P_CALC              # precipitation total (mm)
+  - SOLARAD             # global solar radiation, average (W/m^2)
+  - SUR_TEMP            # infrared surface temperature (degC)
+  - RH_HR_AVG           # relative humidity (%)
+  - SOIL_TEMP_20        # soil temperature at 20 cm (degC)
+  - SOIL_MOISTURE_5     # volumetric water content (m^3/m^3)
+  - SOIL_MOISTURE_10
+  - SOIL_MOISTURE_20
+  - SOIL_MOISTURE_50
+  - SOIL_MOISTURE_100
+target: SOIL_MOISTURE_20
+
+preprocessing:
+  max_interpolation_gap_hours: 6
+  # Variables that carry a documented NOAA QC flag (README Note G: 0=good, 3=erroneous)
+  qc_flag_map:
+    SOLARAD: SOLARAD_FLAG
+    SUR_TEMP: SUR_TEMP_FLAG
+    RH_HR_AVG: RH_HR_AVG_FLAG
+  # Hard physical-impossibility bounds only (not statistical outlier removal).
+  # Values outside are set to NaN and counted in the preprocessing report.
+  physical_bounds:
+    T_HR_AVG: [-60, 60]
+    P_CALC: [0, 300]
+    SOLARAD: [0, 1500]
+    SUR_TEMP: [-60, 80]
+    RH_HR_AVG: [0, 100]
+    SOIL_TEMP_20: [-30, 50]
+    SOIL_MOISTURE_5: [0, 1]
+    SOIL_MOISTURE_10: [0, 1]
+    SOIL_MOISTURE_20: [0, 1]
+    SOIL_MOISTURE_50: [0, 1]
+    SOIL_MOISTURE_100: [0, 1]
+  # Precipitation is an intermittent accumulation; interpolating it would
+  # fabricate rainfall, so short gaps in these variables are NOT interpolated.
+  no_interpolation: [P_CALC]
+
+sequences:
+  input_window: 24
+  horizon: 1
+  stride: 1
+  # "delta": network predicts the 1-h change SM20(t+1)-SM20(t), which is added
+  #          to the last observed SM20(t) (residual formulation).
+  # "level": network predicts SM20(t+1) directly (ablation; see configs/).
+  # Chosen on the VALIDATION split: direct-level LSTM/BiLSTM were worse than
+  # naive persistence there (see docs/METHODOLOGY.md).
+  target_mode: delta
+  windows_dir: data/processed
+  train_frac: 0.70
+  val_frac: 0.15
+  test_frac: 0.15
+
+models:
+  lstm:
+    hidden_size: 64
+    num_layers: 2
+    dropout: 0.2
+  bilstm:
+    hidden_size: 64
+    num_layers: 2
+    dropout: 0.2
+  transformer:
+    d_model: 64
+    nhead: 4
+    num_layers: 2
+    dim_feedforward: 128
+    dropout: 0.1
+
+training:
+  epochs: 60
+  batch_size: 256
+  learning_rate: 0.001
+  weight_decay: 0.0
+  early_stopping_patience: 8
+  num_threads: 8
+  model_dir: models
+  results_dir: results
+
+irrigation:
+  # Threshold-based PROXY decision: irrigate if predicted VWC (m^3/m^3) < threshold.
+  # Requires agronomic calibration for the specific crop and soil.
+  # mode: "fixed" uses `threshold`; "train_percentile" derives it from the
+  # training-period distribution of the target (no test data used).
+  mode: train_percentile
+  percentile: 25
+  threshold: null
+
+explainability:
+  permutation_repeats: 3
+  max_samples: 5000
+  shap_background: 100
+  shap_samples: 200

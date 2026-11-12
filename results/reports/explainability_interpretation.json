@@ -1,0 +1,13 @@
+{
+  "points": [
+    "BiLSTM: largest permutation importance = soil moisture 20 cm (target history) (+0.0699 m\u00b3/m\u00b3 RMSE), then precipitation (+0.0007) and soil moisture 10 cm (+0.0001).",
+    "LSTM: largest permutation importance = soil moisture 20 cm (target history) (+0.0678 m\u00b3/m\u00b3 RMSE), then precipitation (+0.0016) and soil moisture 10 cm (+0.0006).",
+    "Transformer: largest permutation importance = soil moisture 20 cm (target history) (+0.0706 m\u00b3/m\u00b3 RMSE), then precipitation (+0.0013) and soil moisture 5 cm (+0.0001).",
+    "LSTM (SHAP, drivers of the predicted 1-h change): soil moisture 20 cm (target history), soil moisture 10 cm, soil moisture 5 cm.",
+    "BiLSTM (SHAP, drivers of the predicted 1-h change): soil moisture 20 cm (target history), soil moisture 10 cm, soil moisture 5 cm.",
+    "Transformer (SHAP, drivers of the predicted 1-h change): soil moisture 20 cm (target history), soil moisture 5 cm, soil moisture 10 cm.",
+    "SOIL_MOISTURE_20 dominates permutation importance largely by construction: the forecaster adds the predicted change to the last observed SM20, so permuting SM20 history moves the forecast baseline itself.",
+    "Large mean |SHAP| on SM20 lags (larger than the typical 1-h change) arises from opposite-signed attributions on adjacent lags, i.e. the networks use the recent rate of change of SM20 rather than its absolute level (see the lag heatmaps).",
+    "Precipitation permutation importance by model: BiLSTM +0.00067, LSTM +0.00159, Transformer +0.00125 m\u00b3/m\u00b3 \u2014 rain events drive the sharp wetting jumps that persistence cannot anticipate."
+  ]
+}

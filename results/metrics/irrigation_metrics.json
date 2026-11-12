@@ -1,0 +1,100 @@
+{
+  "threshold": {
+    "threshold": 0.36399999260902405,
+    "source": "25th percentile of training-period 14174 target values"
+  },
+  "models": {
+    "Persistence": {
+      "threshold": 0.36399999260902405,
+      "n": 3100,
+      "positive_rate_actual": 0.9358064516129032,
+      "positive_rate_predicted": 0.9358064516129032,
+      "accuracy": 0.98,
+      "precision_irrigate": 0.98931402964495,
+      "recall_irrigate": 0.98931402964495,
+      "f1_irrigate": 0.98931402964495,
+      "precision_no_irrigate": 0.8442211055276382,
+      "recall_no_irrigate": 0.8442211055276382,
+      "f1_macro": 0.9167675675862941,
+      "confusion_matrix": [
+        [
+          168,
+          31
+        ],
+        [
+          31,
+          2870
+        ]
+      ]
+    },
+    "LSTM": {
+      "threshold": 0.36399999260902405,
+      "n": 3100,
+      "positive_rate_actual": 0.9358064516129032,
+      "positive_rate_predicted": 0.9329032258064516,
+      "accuracy": 0.9796774193548388,
+      "precision_irrigate": 0.9906639004149378,
+      "recall_irrigate": 0.9875904860392968,
+      "f1_irrigate": 0.9891248058001035,
+      "precision_no_irrigate": 0.8269230769230769,
+      "recall_no_irrigate": 0.864321608040201,
+      "f1_macro": 0.9171668255044744,
+      "confusion_matrix": [
+        [
+          172,
+          27
+        ],
+        [
+          36,
+          2865
+        ]
+      ]
+    },
+    "BiLSTM": {
+      "threshold": 0.36399999260902405,
+      "n": 3100,
+      "positive_rate_actual": 0.9358064516129032,
+      "positive_rate_predicted": 0.9345161290322581,
+      "accuracy": 0.9793548387096774,
+      "precision_irrigate": 0.9896444597859855,
+      "recall_irrigate": 0.988279903481558,
+      "f1_irrigate": 0.9889617109348051,
+      "precision_no_irrigate": 0.8325123152709359,
+      "recall_no_irrigate": 0.8492462311557789,
+      "f1_macro": 0.9148788654176513,
+      "confusion_matrix": [
+        [
+          169,
+          30
+        ],
+        [
+          34,
+          2867
+        ]
+      ]
+    },
+    "Transformer": {
+      "threshold": 0.36399999260902405,
+      "n": 3100,
+      "positive_rate_actual": 0.9358064516129032,
+      "positive_rate_predicted": 0.9351612903225807,
+      "accuracy": 0.98,
+      "precision_irrigate": 0.9896516040013797,
+      "recall_irrigate": 0.9889693209238194,
+      "f1_irrigate": 0.9893103448275862,
+      "precision_no_irrigate": 0.8407960199004975,
+      "recall_no_irrigate": 0.8492462311557789,
+      "f1_macro": 0.9171551724137931,
+      "confusion_matrix": [
+        [
+          169,
+          30
+        ],
+        [
+          32,
+          2869
+        ]
+      ]
+    }
+  }
+}
